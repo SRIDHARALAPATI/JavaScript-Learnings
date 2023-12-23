@@ -35,5 +35,35 @@ a();
   console.log(z);
 }
 console.log(x); //we can access because it is gloabl -leval acceess
-console.log(y); // we can't access  variable because is y is declared with let , it is a blockl-level scope
-console.log(z);// we can't access  variable because is z is declared with const , it is a blockl-level scope
+// console.log(y); // we can't access  variable because is y is declared with let , it is a blockl-level scope
+// console.log(z);// we can't access  variable because is z is declared with const , it is a blockl-level scope
+
+
+
+/********************************************************************************************* */
+
+//Shadowing and legal Shadowing
+
+var firstname="xyz";
+let lastname="abc"
+
+if(true)
+{
+  var firstname="Sridhar" // legal shadowing
+  let lastname="Reddy" // legal shadowing
+  console.log(firstname);
+  console.log(lastname);
+
+}
+console.log(firstname);
+console.log(lastname);
+
+
+// if(true)
+// {
+  
+//   var lastname="john" // illegal shadowing throws error of lastname already declared
+//  ;
+//   console.log(lastname);
+
+// }
