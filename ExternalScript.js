@@ -67,3 +67,20 @@ console.log(lastname);
 //   console.log(lastname);
 
 // }
+
+/********************************************************************************************* */
+//clousers
+
+function day(){
+  var fi=2;
+  month()
+  function month(){
+    var se=4;
+    year();
+  }
+  function year(){
+    var ye=1999;
+    console.log(fi);
+  }
+}
+day();
