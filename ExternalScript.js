@@ -84,3 +84,15 @@ function day(){
   }
 }
 day();
+
+//Clouser complex 1
+
+function clo1(){
+var a=7;
+function clo2(){
+  console.log(a);
+}
+return clo2;
+}
+var clovar=clo1();
+clovar();
