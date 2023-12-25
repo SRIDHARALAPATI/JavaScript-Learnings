@@ -128,3 +128,25 @@ function settime2() {
   console.log("settimeout using for loop +var");
 }
 settime2();
+
+
+
+/********************************************************************************************* */
+// callback function example
+
+function call1(f){
+  console.log("call 1");
+  f();
+
+}
+
+
+call1(function call2(){
+  console.log("call 2 function"); // passing a function as argument to other function
+});
+
+setTimeout(()=>{
+  console.log("settimeout callback function ")
+},7000)
+
+
