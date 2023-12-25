@@ -149,4 +149,11 @@ setTimeout(()=>{
   console.log("settimeout callback function ")
 },7000)
 
+function eventlistner(){
+let count=0;
+document.getElementById("clickme").addEventListener("click",function xyz(){
+  console.log("button clicked",++count);
+})
+}
 
+eventlistner();
