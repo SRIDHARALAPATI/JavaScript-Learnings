@@ -157,3 +157,41 @@ document.getElementById("clickme").addEventListener("click",function xyz(){
 }
 
 eventlistner();
+
+
+/********************************************************************************************* */
+// MAP() example
+
+const value =[1,2,3,4,5]
+
+// lets double the values of array
+function double(x){
+   return x*2;
+}
+const output= value.map(double); // using normal callback function
+const output_arrow= value.map((x)=>x*2) // using arrow callback function
+
+
+console.log(output);
+console.log(output_arrow);
+console.log(value);
+
+/********************************************************************************************* */
+// filter() example
+
+const value1 =[11,22,33,44,55,666,999]
+
+function even(x){
+   if(x%2==0){
+return x;
+   }
+}
+
+const foutput=value1.filter(even); //using normal callback function
+const foutput_arrow= value1.filter((x)=>{
+  if(x%2!=0){
+    return x;
+  }
+}) // using arrow functions to get odd numbers
+console.log(foutput);
+console.log(foutput_arrow);
