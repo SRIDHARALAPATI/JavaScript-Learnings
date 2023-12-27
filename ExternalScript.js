@@ -182,16 +182,48 @@ console.log(value);
 const value1 =[11,22,33,44,55,666,999]
 
 function even(x){
-   if(x%2==0){
-return x;
-   }
+  return x%2===0;
+//    if(x%2==0){
+// return x;
+//    }
 }
 
 const foutput=value1.filter(even); //using normal callback function
 const foutput_arrow= value1.filter((x)=>{
-  if(x%2!=0){
-    return x;
-  }
-}) // using arrow functions to get odd numbers
+ return  x>44;
+}) // using arrow functions to get values greater than 44
 console.log(foutput);
 console.log(foutput_arrow);
+
+
+const users=[{Firstname:"Sridhar Reddy", lastname:"Alapati", age:"24"},
+{Firstname:"Somu", lastname:"Rapaka", age:"10"},
+{Firstname:"Sai", lastname:"Krishna", age:"35"},
+{Firstname:"varun", lastname:"bon", age:"10"},
+{Firstname:"sai", lastname:"teja", age:"39"}]
+
+// get me firstname of users
+const map_output=users.map((x)=> x.Firstname); // applied map()
+console.log(map_output);
+
+
+// get me firstname and last name of users who turned age 30
+
+const filter_output=users.filter((x)=>x.age>30).map((x)=>x.Firstname+x.lastname);
+console.log(filter_output);
+
+//Apply reduce() to create an object that represents the count of users in different age groups.
+// For example, { "24": 1, "10": 2, "35": 1, "39" :1}.
+
+
+const reduce_output=users.reduce((acc, curv)=>{
+  if(acc[curv.age]){
+    acc[curv.age]=++acc[curv.age];
+  }
+  else{
+      acc[curv.age]=1;
+  }
+return acc;
+
+},{})
+console.log(reduce_output);
