@@ -227,3 +227,19 @@ return acc;
 
 },{})
 console.log(reduce_output);
+
+
+
+// array destructuring
+
+var fruits=["Apple", "Bananna", "orange", "strawberry"];
+
+var [redfruit,yellow_fruit, orange,pink ]=fruits;
+console.log(redfruit, yellow_fruit, orange, pink );
+
+
+//If you want to choose random elements from the given
+// array then in array destructuring you can perform it as follows:
+
+var [redfruit,,,pink ]=fruits;
+console.log(redfruit, pink);
