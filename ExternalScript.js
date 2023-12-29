@@ -129,48 +129,42 @@ function settime2() {
 }
 settime2();
 
-
-
 /********************************************************************************************* */
 // callback function example
 
-function call1(f){
+function call1(f) {
   console.log("call 1");
   f();
-
 }
 
-
-call1(function call2(){
+call1(function call2() {
   console.log("call 2 function"); // passing a function as argument to other function
 });
 
-setTimeout(()=>{
-  console.log("settimeout callback function ")
-},7000)
+setTimeout(() => {
+  console.log("settimeout callback function ");
+}, 7000);
 
-function eventlistner(){
-let count=0;
-document.getElementById("clickme").addEventListener("click",function xyz(){
-  console.log("button clicked",++count);
-})
+function eventlistner() {
+  let count = 0;
+  document.getElementById("clickme").addEventListener("click", function xyz() {
+    console.log("button clicked", ++count);
+  });
 }
 
 eventlistner();
 
-
 /********************************************************************************************* */
 // MAP() example
 
-const value =[1,2,3,4,5]
+const value = [1, 2, 3, 4, 5];
 
 // lets double the values of array
-function double(x){
-   return x*2;
+function double(x) {
+  return x * 2;
 }
-const output= value.map(double); // using normal callback function
-const output_arrow= value.map((x)=>x*2) // using arrow callback function
-
+const output = value.map(double); // using normal callback function
+const output_arrow = value.map((x) => x * 2); // using arrow callback function
 
 console.log(output);
 console.log(output_arrow);
@@ -179,67 +173,116 @@ console.log(value);
 /********************************************************************************************* */
 // filter() example
 
-const value1 =[11,22,33,44,55,666,999]
+const value1 = [11, 22, 33, 44, 55, 666, 999];
 
-function even(x){
-  return x%2===0;
-//    if(x%2==0){
-// return x;
-//    }
+function even(x) {
+  return x % 2 === 0;
+  //    if(x%2==0){
+  // return x;
+  //    }
 }
 
-const foutput=value1.filter(even); //using normal callback function
-const foutput_arrow= value1.filter((x)=>{
- return  x>44;
-}) // using arrow functions to get values greater than 44
+const foutput = value1.filter(even); //using normal callback function
+const foutput_arrow = value1.filter((x) => {
+  return x > 44;
+}); // using arrow functions to get values greater than 44
 console.log(foutput);
 console.log(foutput_arrow);
 
-
-const users=[{Firstname:"Sridhar Reddy", lastname:"Alapati", age:"24"},
-{Firstname:"Somu", lastname:"Rapaka", age:"10"},
-{Firstname:"Sai", lastname:"Krishna", age:"35"},
-{Firstname:"varun", lastname:"bon", age:"10"},
-{Firstname:"sai", lastname:"teja", age:"39"}]
+const users = [
+  { Firstname: "Sridhar Reddy", lastname: "Alapati", age: "24" },
+  { Firstname: "Somu", lastname: "Rapaka", age: "10" },
+  { Firstname: "Sai", lastname: "Krishna", age: "35" },
+  { Firstname: "varun", lastname: "bon", age: "10" },
+  { Firstname: "sai", lastname: "teja", age: "39" },
+];
 
 // get me firstname of users
-const map_output=users.map((x)=> x.Firstname); // applied map()
+const map_output = users.map((x) => x.Firstname); // applied map()
 console.log(map_output);
-
 
 // get me firstname and last name of users who turned age 30
 
-const filter_output=users.filter((x)=>x.age>30).map((x)=>x.Firstname+x.lastname);
+const filter_output = users
+  .filter((x) => x.age > 30)
+  .map((x) => x.Firstname + x.lastname);
 console.log(filter_output);
 
 //Apply reduce() to create an object that represents the count of users in different age groups.
 // For example, { "24": 1, "10": 2, "35": 1, "39" :1}.
 
-
-const reduce_output=users.reduce((acc, curv)=>{
-  if(acc[curv.age]){
-    acc[curv.age]=++acc[curv.age];
+const reduce_output = users.reduce((acc, curv) => {
+  if (acc[curv.age]) {
+    acc[curv.age] = ++acc[curv.age];
+  } else {
+    acc[curv.age] = 1;
   }
-  else{
-      acc[curv.age]=1;
-  }
-return acc;
-
-},{})
+  return acc;
+}, {});
 console.log(reduce_output);
-
-
 
 // array destructuring
 
-var fruits=["Apple", "Bananna", "orange", "strawberry"];
+var fruits = ["Apple", "Bananna", "orange", "strawberry"];
 
-var [redfruit,yellow_fruit, orange,pink ]=fruits;
-console.log(redfruit, yellow_fruit, orange, pink );
-
+var [redfruit, yellow_fruit, orange, pink] = fruits;
+console.log(redfruit, yellow_fruit, orange, pink);
 
 //If you want to choose random elements from the given
 // array then in array destructuring you can perform it as follows:
 
-var [redfruit,,,pink ]=fruits;
+var [redfruit, , , pink] = fruits;
 console.log(redfruit, pink);
+// object destructuring
+
+var student_details = { firstname: "sridhar", lastname: "Reddy", age: 25 };
+
+let { firstname: fname, lastname: lname, age } = student_details;
+
+console.log(fname + lname);
+
+//rest parameter
+
+function rest(a, b, ...args) {
+  console.log(a);
+  console.log(b);
+  console.log(args);
+}
+
+rest(1, 2, 3, "a", "b", 4);
+
+// array destructing wih rest parameter
+var fruits1 = ["Apple", "Bananna", "orange", "strawberry"];
+
+var [redfruit, yellow_fruit, ...args] = fruits1;
+console.log(args);
+
+// spread operator
+
+const set1 = [2, 4, 5, 6, 7];
+const set2 = ["a", "b", "c", ...set1];
+console.log(set2);
+
+let initialChars = ["A", "B"];
+let chars = [...initialChars, "C", "D"];
+console.log(chars); // ["A", "B", "C", "D"]
+
+// apply()
+function sum(a, b) {
+  return a + b;
+}
+
+const nums = [1, 2];
+// console.log(sum.apply(null, nums)); passing array as agruments to function using apply()
+
+//optinal  chaining
+const user = {
+  dog: {
+    name: "Alex"
+  }
+};
+ 
+console.log(user.cat?.name); //undefined
+console.log(user.dog?.name); //Alex
+console.log(user?.name);
+
