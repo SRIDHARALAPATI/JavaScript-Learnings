@@ -278,11 +278,22 @@ const nums = [1, 2];
 //optinal  chaining
 const user = {
   dog: {
-    name: "Alex"
-  }
+    name: "Alex",
+  },
 };
- 
-console.log(user.cat?.name); //undefined
-console.log(user.dog?.name); //Alex
-console.log(user?.name);
+//onclick
+const play = document.getElementById("play").addEventListener("click", (e)=>{
+alert("play button clicked")
+});
+// onblur
+function myFunction() {
+  alert('Input field lost focus!');
+}
+//onchange
 
+function changeToUpperCase(){
+const change=document.getElementById("Myinput");
+change.value=change.value.toUpperCase();
+}
+
+document.getElementById("Myinput").addEventListener("change", changeToUpperCase);
