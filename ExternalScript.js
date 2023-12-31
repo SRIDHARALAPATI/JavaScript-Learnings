@@ -297,3 +297,25 @@ change.value=change.value.toUpperCase();
 }
 
 document.getElementById("Myinput").addEventListener("change", changeToUpperCase);
+
+//setInterval
+
+const interval=setInterval(()=>{
+  console.log("hi")
+},1000)
+setTimeout(()=>{
+  clearInterval(interval)
+  console.log("Interval cleared after 5 seconds");
+},5000);
+
+
+// promise
+
+const github_api="https://api.github.com/users";
+
+const git_users= fetch(github_api);
+git_users.then(function(data){
+  console.log(data);
+})
+
+console.log(git_users);
